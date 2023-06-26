@@ -1,0 +1,45 @@
+.header{
+    background-color: rgb(255, 255, 255);
+    line-height: 40px;
+}
+
+.header a{
+    color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.header a :hover{
+    color: black;
+}
+
+.link-active{
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+    border-bottom: 3px solid red;
+}
+
+.border_2 {
+    background-color: rgb(202, 202, 202);
+}
+.text{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.star{
+    color: red;
+}
+.button{
+    border: 1px solid green;
+    color: white;
+    background-color: green;
+    margin-top: 20px;
+}
+.button_2{
+    color: blue;
+}
+
+.AnhLon{
+    width: 80px;
+}

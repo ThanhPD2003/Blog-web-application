@@ -1,25 +1,14 @@
 import { Col, Container, Row } from "react-bootstrap";
+import '../style/Footer.css';
+
 const Footer = () => {
     return (
         <Row className="footer fixed-bottom">
             <Container className="footer-component">
                 <Row>
-                    <Row>
-                        <Col xs={3}>
-                            @Copyright by BlogTech
-                            sadasd
-                            faddsa
-                            dsadsa
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={3}>
-                            BlogTech
-                            sadasd
-                            faddsa
-                            dsadsa
-                        </Col>
-                    </Row>
+                    <Col>
+                        @Copyright by Team 6
+                    </Col>
                 </Row>
             </Container>
         </Row>
