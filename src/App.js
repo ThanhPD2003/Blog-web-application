@@ -1,19 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
-import Register from './components/Register';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import { BrowserRouter } from 'react-router-dom';
+import { Routes } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import Header from './components/Header';
+import Home from './components/Home';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    // <Header />
+    <div className='container-fulid'>
       <BrowserRouter>
+        <Header/>
         <Routes>
-
           <Route path="/register" element={<Register />}></Route>
-
+          <Route path='/' element={<Home/>}/>
         </Routes>
+        <Footer/>
       </BrowserRouter>
-      // <Footer />
+    </div>    
+
   );
 }
 
