@@ -1,4 +1,5 @@
 import './App.css';
+
 import { BrowserRouter } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
@@ -12,11 +13,13 @@ function App() {
       <BrowserRouter>
         <Header/>
         <Routes>
+          <Route path="/register" element={<Register />}></Route>
           <Route path='/' element={<Home/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>
     </div>    
+
   );
 }
 
