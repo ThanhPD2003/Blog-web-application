@@ -1,15 +1,36 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import '../styles/Register.css';
 
 const Register = () => {
+  const [users, setUsers] = useState([]);
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [address, setAddress] = useState('');
+  const [phone, setPhone] = useState('');
+  const [status, setStatus] = useState(true);
+  const [role_id, setRole_id] = useState(2);
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
   const [emailError, setEmailError] = useState('');
 
-  const handleRegister = async (e) => {
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  const fetchUsers = () => {
+    fetch('http://localhost:9999/user')
+      .then((response) => response.json())
+      .then((data) => {
+        setUsers(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching users:', error);
+      });
+  };
+
+  const handleRegister = (e) => {
     e.preventDefault();
 
     // Perform validation
@@ -32,24 +53,33 @@ const Register = () => {
 
     // Create a new user object
     const newUser = {
+      id: users.length + 1,
+      name,
       email,
       password,
+      address,
+      phone,
+      status,
+      role_id,
     };
 
-    try {
-      // Save the new user to the database
-      await saveUserToDatabase(newUser);
+    saveUserToDatabase(newUser)
+      .then(() => {
+        // Reset the form
+        setName('');
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
 
-      // Reset the form
-      setEmail('');
-      setPassword('');
-      setConfirmPassword('');
+        // Fetch users again to reflect the changes
+        fetchUsers();
 
-      alert('Registration successful!');
-    } catch (error) {
-      console.error('Error saving user:', error);
-      alert('An error occurred while saving the user.');
-    }
+        alert('Registration successful!');
+      })
+      .catch((error) => {
+        console.error('Error saving user:', error);
+        alert('An error occurred while saving the user.');
+      });
   };
 
   const validatePassword = (password) => {
@@ -79,57 +109,63 @@ const Register = () => {
     setConfirmPasswordError('');
   };
 
-  const saveUserToDatabase = async (user) => {
-    try {
-      // Send an HTTP POST request to save the user to the database
-      await axios.post('/api/users', user);
-    } catch (error) {
-      throw new Error('Failed to save user to the database.');
-    }
-  };
+  const saveUserToDatabase = (newUser) => {
+    return fetch('http://localhost:9999/user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newUser)
+    })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Error saving user');
+      }
+    });
+};
 
-  return (
-    <div className="register-container">
-      <h2>Register</h2>
-      <form onSubmit={handleRegister}>
-        <div className="input-container">
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={handleEmailChange}
-            required
-          />
-          {emailError && <p className="error">{emailError}</p>}
-        </div>
-        <div className="input-container">
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-            required
-          />
-          {passwordError && <p className="error">{passwordError}</p>}
-        </div>
-        <div className="input-container">
-          <label>Confirm Password:</label>
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={handleConfirmPasswordChange}
-            required
-          />
-          {confirmPasswordError && (
-            <p className="error">{confirmPasswordError}</p>
-          )}
-        </div>
-        <button type="submit" className="register-button">
-          Register
-        </button>
-      </form>
-    </div>
-  );
+return (
+  <div className="register-container">
+    <h2>Register</h2>
+    <form onSubmit={handleRegister}>
+      <label>Email:</label>
+      <div className="input-container">
+        <input
+          type="email"
+          value={email}
+          onChange={handleEmailChange}
+          required
+        />
+        {emailError && <p className="error">{emailError}</p>}
+      </div>
+      <label>Password:</label>
+      <div className="input-container">
+        <input
+          type="password"
+          value={password}
+          onChange={handlePasswordChange}
+          required
+        />
+        {passwordError && <p className="error">{passwordError}</p>}
+      </div>
+      <label>Confirm Password:</label>
+      <div className="input-container">
+        <input
+          type="password"
+          value={confirmPassword}
+          onChange={handleConfirmPasswordChange}
+          required
+        />
+        {confirmPasswordError && (
+          <p className="error">{confirmPasswordError}</p>
+        )}
+      </div>
+      <button type="submit" className="register-button">
+        Register
+      </button>
+    </form>
+  </div>
+);
 };
 
 export default Register;
