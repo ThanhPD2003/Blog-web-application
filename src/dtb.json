@@ -49,6 +49,16 @@
       "phone": "",
       "status": true,
       "role_id": 2
+    },
+    {
+      "id": 6,
+      "name": "",
+      "email": "dumamay@gmail.com",
+      "password": "Valkyrie69",
+      "address": "",
+      "phone": "",
+      "status": true,
+      "role_id": 2
     }
   ],
   "role": [
@@ -67,7 +77,7 @@
   ],
   "blog": [
     {
-      "blog_id": 1,
+      "id": 1,
       "name": "Học IT lương ngàn đô?",
       "img": "https://vtc.edu.vn/wp-content/uploads/2021/07/coder-vtc-academy-3.jpg",
       "brief_info": "Học IT lương ngàn đô...",
@@ -78,7 +88,7 @@
       "user_id": 1
     },
     {
-      "blog_id": 2,
+      "id": 2,
       "name": "Học IT lương ngàn đô?",
       "img": "https://vtc.edu.vn/wp-content/uploads/2021/07/coder-vtc-academy-3.jpg",
       "brief_info": "Học IT lương ngàn đô...",
@@ -89,7 +99,7 @@
       "user_id": 1
     },
     {
-      "blog_id": 3,
+      "id": 3,
       "name": "Học IT lương ngàn đô?",
       "img": "https://vtc.edu.vn/wp-content/uploads/2021/07/coder-vtc-academy-3.jpg",
       "brief_info": "Học IT lương ngàn đô...",
@@ -111,7 +121,7 @@
       "user_id": 1
     },
     {
-      "blog_id": 5,
+      "id": 5,
       "name": "Học IT lương ngàn đô?",
       "img": "https://vtc.edu.vn/wp-content/uploads/2021/07/coder-vtc-academy-3.jpg",
       "brief_info": "Học IT lương ngàn đô...",
@@ -122,7 +132,7 @@
       "user_id": 1
     },
     {
-      "blog_id": 6,
+      "id": 6,
       "name": "Học IT lương ngàn đô?",
       "img": "https://vtc.edu.vn/wp-content/uploads/2021/07/coder-vtc-academy-3.jpg",
       "brief_info": "Học IT lương ngàn đô...",
@@ -133,7 +143,7 @@
       "user_id": 1
     },
     {
-      "blog_id": 7,
+      "id": 7,
       "name": "Học IT lương ngàn đô?",
       "img": "https://vtc.edu.vn/wp-content/uploads/2021/07/coder-vtc-academy-3.jpg",
       "brief_info": "Học IT lương ngàn đô...",
@@ -144,7 +154,7 @@
       "user_id": 1
     },
     {
-      "blog_id": 8,
+      "id": 8,
       "name": "Học IT lương ngàn đô?",
       "img": "https://vtc.edu.vn/wp-content/uploads/2021/07/coder-vtc-academy-3.jpg",
       "brief_info": "Học IT lương ngàn đô...",
@@ -155,7 +165,7 @@
       "user_id": 1
     },
     {
-      "blog_id": 9,
+      "id": 9,
       "name": "Học IT lương ngàn đô?",
       "img": "https://vtc.edu.vn/wp-content/uploads/2021/07/coder-vtc-academy-3.jpg",
       "brief_info": "Học IT lương ngàn đô...",
@@ -166,7 +176,7 @@
       "user_id": 1
     },
     {
-      "blog_id": 10,
+      "id": 10,
       "name": "Học IT lương ngàn đô?",
       "img": "https://vtc.edu.vn/wp-content/uploads/2021/07/coder-vtc-academy-3.jpg",
       "brief_info": "Học IT lương ngàn đô...",
@@ -175,27 +185,49 @@
       "status": true,
       "cate_id": 1,
       "user_id": 1
+    },
+    {
+      "id": 11,
+      "name": "tHANH",
+      "img": "123",
+      "briefInfo": "123",
+      "content": "123",
+      "createDate": "123",
+      "status": true,
+      "cateId": 1,
+      "userId": 1
+    },
+    {
+      "id": 12,
+      "name": "Thanh",
+      "img": "123",
+      "briefInfo": "123",
+      "content": "123",
+      "createDate": "123",
+      "status": false,
+      "cateId": "4",
+      "userId": 1
     }
   ],
   "category_blog": [
     {
-      "cate_id": 1,
+      "id": 1,
       "name": "Tin tức"
     },
     {
-      "cate_id": 2,
+      "id": 2,
       "name": "Trải nghiệm"
     },
     {
-      "cate_id": 3,
+      "id": 3,
       "name": "Di động"
     },
     {
-      "cate_id": 4,
+      "id": 4,
       "name": "Máy tính"
     },
     {
-      "cate_id": 5,
+      "id": 5,
       "name": "Công nghệ thông tin"
     }
   ]
