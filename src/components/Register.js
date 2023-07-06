@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/Register.css';
+import '../style/Register.css';
 
 const Register = () => {
   const [users, setUsers] = useState([]);

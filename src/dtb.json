@@ -89,8 +89,8 @@
     },
     {
       "id": 2,
-      "name": "Học IT lương 10000000000",
-      "img": "https://tse1.mm.bing.net/th?id=OIP.NW3BdEdduLNroAazxWliDgHaJs&pid=Api&P=0&h=180",
+      "name": "Học IT lương ngàn đô?",
+      "img": "https://vtc.edu.vn/wp-content/uploads/2021/07/coder-vtc-academy-3.jpg",
       "brief_info": "Học IT lương ngàn đô...",
       "content": "Chào mọi người, hiện tại các bạn đã có điểm thi và đang phân vân chọn ngành học. Làm mình bồi hồi nhớ lại hồi trước mình cũng phân vân, mông lung trong chọn con đường tương lai. Mặc dù đam mê game và mộng tưởng về tương lai sẽ làm một con game khuynh đảo thế giới :v. Và dĩ nhiên từ khóa hot nhất hiện tại là IT, vua của mọi nghề :v. Nhân dịp vừa xong đồ án tốt nghiệp kỹ sư IT của HUST, mình xin chia sẻ một chút về IT cho những bạn đang chọn, những bạn sau này cũng sẽ phân vân chọn ngành này. ",
       "create_date": "12/12/2022",
@@ -110,7 +110,7 @@
       "user_id": 1
     },
     {
-      "id": 4,
+      "id": 5,
       "name": "Học IT lương ngàn đô?",
       "img": "https://vtc.edu.vn/wp-content/uploads/2021/07/coder-vtc-academy-3.jpg",
       "brief_info": "Học IT lương ngàn đô...",
@@ -176,6 +176,7 @@
       "user_id": 1
     },
     {
+
       "id": 10,
       "name": "Học IT lương ngàn đô?",
       "img": "https://vtc.edu.vn/wp-content/uploads/2021/07/coder-vtc-academy-3.jpg",
@@ -185,29 +186,8 @@
       "status": true,
       "cate_id": 1,
       "user_id": 1
-    },
-    {
-      "id": 11,
-      "name": "tHANH",
-      "img": "123",
-      "briefInfo": "123",
-      "content": "123",
-      "createDate": "123",
-      "status": true,
-      "cateId": 1,
-      "userId": 1
-    },
-    {
-      "id": 12,
-      "name": "Thanh",
-      "img": "123",
-      "briefInfo": "123",
-      "content": "123",
-      "createDate": "123",
-      "status": false,
-      "cateId": "4",
-      "userId": 1
     }
+
   ],
   "category_blog": [
     {
