@@ -1,7 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import "../style/AddBlog.css";
+import UserContext from './UserContext';
+import { format } from 'date-fns';
+import { enGB } from 'date-fns/locale';
 
 const AddBlog = () => {
+    const { userId } = useContext(UserContext);
+
     const [blogs, setBlogs] = useState([]);
     const [name, setName] = useState('');
     const [img, setImg] = useState('');
@@ -10,7 +15,6 @@ const AddBlog = () => {
     const [createDate, setCreateDate] = useState('');
     const [status, setStatus] = useState(false);
     const [cateId, setCateId] = useState('');
-    const [userId, setUserId] = useState(1);
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
@@ -42,7 +46,11 @@ const AddBlog = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        // Get the current date
+        const currentDate = new Date();
 
+        // Format the date as "dd/mm/yy"
+        const formattedDate = currentDate.toLocaleDateString('en-GB');
         // Tạo đối tượng blog mới
         const newBlog = {
             id: blogs.length + 1, // Hãy tạo hàm generateUniqueId() để tạo id duy nhất
@@ -50,7 +58,7 @@ const AddBlog = () => {
             img,
             briefInfo,
             content,
-            createDate,
+            createDate: formattedDate,
             status,
             cateId,
             userId
@@ -113,11 +121,6 @@ const AddBlog = () => {
                 <label>Nội dung:</label>
                 <div className="input-container">
                     <textarea value={content} onChange={(e) => setContent(e.target.value)} required />
-                </div>
-
-                <label>Ngày tạo:</label>
-                <div className="input-container">
-                    <input type="text" value={createDate} onChange={(e) => setCreateDate(e.target.value)} required />
                 </div>
 
                 <label>Thể loại:</label>

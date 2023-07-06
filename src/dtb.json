@@ -207,6 +207,104 @@
       "status": false,
       "cateId": "4",
       "userId": 1
+    },
+    {
+      "id": 13,
+      "name": "123",
+      "img": "123",
+      "briefInfo": "123",
+      "content": "123",
+      "createDate": "",
+      "status": false,
+      "cateId": "4",
+      "userId": 1
+    },
+    {
+      "id": 14,
+      "name": "1234",
+      "img": "123",
+      "briefInfo": "23",
+      "content": "2",
+      "createDate": "",
+      "status": false,
+      "cateId": "2",
+      "userId": "sessionStorage.getItem(userId)"
+    },
+    {
+      "id": 15,
+      "name": "Thanh's",
+      "img": "123",
+      "briefInfo": "123",
+      "content": "12345",
+      "createDate": "",
+      "status": false,
+      "cateId": "4"
+    },
+    {
+      "id": 16,
+      "name": "12",
+      "img": "43",
+      "briefInfo": "123",
+      "content": "451",
+      "createDate": "",
+      "status": false,
+      "cateId": "1",
+      "userId": "5"
+    },
+    {
+      "id": 17,
+      "name": "Nhat",
+      "img": "123",
+      "briefInfo": "123",
+      "content": "1231",
+      "createDate": "",
+      "status": false,
+      "cateId": "3",
+      "userId": null
+    },
+    {
+      "id": 18,
+      "name": "Nha",
+      "img": "123",
+      "briefInfo": "123",
+      "content": "123",
+      "createDate": "",
+      "status": false,
+      "cateId": "3",
+      "userId": "5"
+    },
+    {
+      "id": 19,
+      "name": "234",
+      "img": "234",
+      "briefInfo": "234",
+      "content": "234",
+      "createDate": "",
+      "status": false,
+      "cateId": "2",
+      "userId": "5"
+    },
+    {
+      "id": 20,
+      "name": "34",
+      "img": "1",
+      "briefInfo": "1",
+      "content": "1",
+      "createDate": "2023-07-05T15:33:56.355Z",
+      "status": true,
+      "cateId": "1",
+      "userId": "5"
+    },
+    {
+      "id": 21,
+      "name": "12",
+      "img": "1",
+      "briefInfo": "1",
+      "content": "1",
+      "createDate": "06/07/2023",
+      "status": false,
+      "cateId": "3",
+      "userId": "5"
     }
   ],
   "category_blog": [

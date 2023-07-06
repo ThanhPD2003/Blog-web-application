@@ -1,14 +1,14 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UserContext from "./UserContext";
-import '../style/Login.css';
+import "../style/Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
-  const { loginUser } = useContext(UserContext); // Use UserContext
+  const { loginUser } = useContext(UserContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -36,7 +36,7 @@ const Login = () => {
           sessionStorage.setItem("userEmail", user.email);
 
           // Call loginUser function from UserContext
-          loginUser(user.email);
+          loginUser(user.email, user.id);
 
           // Redirect the user to the dashboard
           navigate("/");
@@ -52,7 +52,6 @@ const Login = () => {
       setErrorMessage("An error occurred during login");
     }
   };
-
  
   return (
     <div className="login-container">

@@ -5,7 +5,7 @@ import UserContext from './UserContext';
 import '../style/Header.css';
 
 const Header = () => {
-  const { userEmail, logoutUser } = useContext(UserContext); // Use UserContext
+  const { userEmail, logoutUser } = useContext(UserContext);
 
   return (
     <Row className="header">
