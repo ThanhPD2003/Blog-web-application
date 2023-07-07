@@ -48,23 +48,25 @@ const Home = () => {
                             {
                                 blog.map(p => (
                                     <tr key={p.id}>
-                                        <div>
-                                            <div>
-                                                <div style={{ paddingLeft: '20%' }}>
-                                                    <Row>
-                                                        <div class="col-lg-6">
-                                                            <a href="#!"><img class="card-img" src={p.img} alt="..." /></a>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div class="small text-muted">{p.create_date}</div>
-                                                            <p>Author: {user.map(u => u.id === p.user_id ? u.name : '')}</p>
-                                                            <h2 class="card-title h4">{p.name}</h2>
-                                                            <p class="card-text">{p.content}</p>
-                                                            <a class="btn btn-primary" href="#!">Read more →</a>
-                                                        </div>
-                                                    </Row>
+                                        <div style={{ paddingLeft: '20%' }}>
+                                            <Row>
+                                                <div className="col-lg-6">
+                                                    <a href="#!">
+                                                        <img className="card-img" src={p.img} alt="..." />
+                                                    </a>
                                                 </div>
-                                            </div>
+                                                <div className="col-lg-6"> {/* Add a column wrapper for the second div */}
+                                                    <div className="card-body">
+                                                        <div className="small text-muted">{p.create_date}</div>
+                                                        <p>Author: {user.map(u => (u.id === p.user_id ? u.name : ''))}</p>
+                                                        <h2 className="card-title h4">{p.name}</h2>
+                                                        <p className="card-text">{p.content}</p>
+                                                        <a className="btn btn-primary" href="#!">
+                                                            Read more →
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </Row>
                                         </div>
                                     </tr>
                                 ))
