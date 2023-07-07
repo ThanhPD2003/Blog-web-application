@@ -1,6 +1,7 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import { NavLink } from "react-router-dom";
 import '../style/Header.css';
+import logo from '../images/logo.png';
 
 const Header = () => {
     return (
@@ -8,7 +9,7 @@ const Header = () => {
             <Container>
                 <Row>
                     <Col xs={6} className='header-left'>
-                        <NavLink to={'/'}><img src="https://gudlogo.com/wp-content/uploads/2019/04/logo-blog-13.png" className='AnhLon'></img></NavLink>
+                        <NavLink to={'/'}><img src={logo} className='AnhLon'></img></NavLink>
                     </Col>
                     <Col xs={6} className='header-right'>
                         <NavLink to={'/'} className={({ isActive }) => isActive ? 'link-active' : 'link'}>Home</NavLink>
