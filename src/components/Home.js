@@ -19,7 +19,7 @@ const Home = () => {
         fetch(' http://localhost:9999/blog')
             .then(resp => resp.json())
             .then(data => {
-                setBlogs(data)
+                setBlogs(data.slice(0, 5))
             })
     }, []);
 
@@ -59,6 +59,7 @@ const Home = () => {
                                                     <div className="card-body">
                                                         <div className="small text-muted">{p.create_date}</div>
                                                         <p>Author: {user.map(u => (u.id === p.user_id ? u.name : ''))}</p>
+                                                        <p>Category: {categories.map(c => (c.id === p.category ? c.name : ''))}</p>
                                                         <h2 className="card-title h4">{p.name}</h2>
                                                         <p className="card-text">{p.content}</p>
                                                         <a className="btn btn-primary" href="#!">
@@ -80,3 +81,5 @@ const Home = () => {
 
 }
 export default Home;
+
+
