@@ -39,15 +39,19 @@ const Home = () => {
   };
 
   return (
-    <div className="slider-container ">
-      <Slider {...sliderSettings}>
-        {slideImages.map((slide, index) => (
-          <div key={index} className="slide-item">
-            <img src={slide.img} alt={`Slide ${index + 1}`} />
-            <p className="slide-name">{slide.name}</p>
+    <Row >
+        <Col xs={12} >
+          <div className="container">
+            <Slider {...sliderSettings}>
+              {slideImages.map((slide, index) => (
+                <div key={index} className="slide-item">
+                  <img src={slide.img} alt={`Slide ${index + 1}`} />
+                  <p className="slide-name"> {slide.name}</p>
+                </div>
+              ))}
+            </Slider>
           </div>
-        ))}
-      </Slider>
+        </Col>
       <Container className="home-component">
         <Row>
           <Col xs={12}>
@@ -55,7 +59,7 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
-    </div>
+    </Row>
   );
 };
 
