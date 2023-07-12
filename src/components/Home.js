@@ -2,6 +2,9 @@ import { Col, Row, Table } from "react-bootstrap";
 import React, { useEffect, useState } from 'react';
 import '../style/Home.css';
 import { Link } from "react-router-dom";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 // import BlogList1 from '../images/BlogList1.jpg';
 // import BlogList2 from '../images/BlogList2.jpg';
 // import BlogList3 from '../images/BlogList3.jpg';
@@ -11,7 +14,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
 
-    const [blog, setBlogs] = useState([]);
+    const [blogs, setBlogs] = useState([]);
     const [user, setUsers] = useState([]);
     const [categories, setCategory] = useState([]);
 
@@ -21,6 +24,20 @@ const Home = () => {
             .then(data => {
                 setBlogs(data.slice(0, 5))
             })
+    }, []);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch("http://localhost:9999/blog");
+                const data = await response.json();
+                setBlogs(data);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
     }, []);
 
     useEffect(() => {
@@ -39,14 +56,44 @@ const Home = () => {
             })
     }, []);
 
+    // Lấy dữ liệu ảnh cho các slide
+    const slideImages = blogs
+        .filter((blog) => [1, 2, 3].includes(blog.id)) // Chỉ lấy blog với blog_id là 1, 2, 3
+        .map((blog) => ({ img: blog.img, name: blog.name }));
+
+    // Cấu hình cho slider (sử dụng trong trường hợp này)
+    const sliderSettings = {
+        dots: true, // Hiển thị điểm chuyển tiếp
+        infinite: true, // Lặp vô hạn
+        speed: 500,
+        slidesToShow: 1, // Hiển thị 1 ảnh trên mỗi slide
+        slidesToScroll: 1,
+        autoplay: true, // Tự động chuyển tiếp ảnh
+        autoplaySpeed: 3000, // Thời gian chờ giữa các lượt chuyển tiếp (3000ms = 3 giây)
+    };
+
     return (
         <Row>
+            <Row >
+                <Col xs={12} >
+                    <div className="container">
+                        <Slider {...sliderSettings}>
+                            {slideImages.map((slide, index) => (
+                                <div key={index} className="slide-item">
+                                    <img src={slide.img} alt={`Slide ${index + 1}`} />
+                                    <p className="slide-name"> {slide.name}</p>
+                                </div>
+                            ))}
+                        </Slider>
+                    </div>
+                </Col>
+            </Row>
             <Row>
                 <Col xs={8}>
                     <tbody>
                         <div>
                             {
-                                blog.map(p => (
+                                blogs.map(p => (
                                     <tr key={p.id}>
                                         <div style={{ paddingLeft: '20%' }}>
                                             <Row>

@@ -1,0 +1,47 @@
+.register-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
+  h2 {
+    margin-top: 0;
+  }
+  
+  form {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .input-container {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  .input-container input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .error {
+    color: red;
+    left: 0;
+    font-size: 0.8rem;
+  }
+  
+  .register-button {
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
