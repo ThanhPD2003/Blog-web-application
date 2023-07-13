@@ -1,10 +1,9 @@
-import { Col, Row, Table } from "react-bootstrap";
+import { Col, Row, Table ,Container} from "react-bootstrap";
 import React, { useEffect, useState } from 'react';
 import '../style/Home.css';
-import { Link } from "react-router-dom";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 // import BlogList1 from '../images/BlogList1.jpg';
 // import BlogList2 from '../images/BlogList2.jpg';
 // import BlogList3 from '../images/BlogList3.jpg';
@@ -31,7 +30,7 @@ const Home = () => {
 
         fetchData();
     }, []);
-    
+
     useEffect(() => {
         fetch(' http://localhost:9999/blog')
             .then(resp => resp.json())
@@ -56,7 +55,6 @@ const Home = () => {
             })
     }, []);
 
-    // Lấy dữ liệu ảnh cho các slide
     const slideImages = blogs
         .filter((blog) => [1, 2, 3].includes(blog.id)) // Chỉ lấy blog với blog_id là 1, 2, 3
         .map((blog) => ({ img: blog.img, name: blog.name }));
@@ -87,6 +85,13 @@ const Home = () => {
                         </Slider>
                     </div>
                 </Col>
+                <Container className="home-component">
+                    <Row>
+                        <Col xs={12}>
+                            <h1>Front-End Web Development with React</h1>
+                        </Col>
+                    </Row>
+                </Container>
             </Row>
             <Row>
                 <Col xs={8}>
