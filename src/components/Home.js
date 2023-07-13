@@ -19,14 +19,6 @@ const Home = () => {
     const [categories, setCategory] = useState([]);
 
     useEffect(() => {
-        fetch(' http://localhost:9999/blog')
-            .then(resp => resp.json())
-            .then(data => {
-                setBlogs(data.slice(0, 5))
-            })
-    }, []);
-
-    useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await fetch("http://localhost:9999/blog");
@@ -39,6 +31,14 @@ const Home = () => {
 
         fetchData();
     }, []);
+    
+    useEffect(() => {
+        fetch(' http://localhost:9999/blog')
+            .then(resp => resp.json())
+            .then(data => {
+                setBlogs(data.slice(0, 5))
+            })
+    }, []);
 
     useEffect(() => {
         fetch(' http://localhost:9999/user')
@@ -49,7 +49,7 @@ const Home = () => {
     }, []);
 
     useEffect(() => {
-        fetch(' http://localhost:9999/category')
+        fetch(' http://localhost:9999/category_blog')
             .then(resp => resp.json())
             .then(data => {
                 setCategory(data)
@@ -106,7 +106,7 @@ const Home = () => {
                                                     <div className="card-body">
                                                         <div className="small text-muted">{p.create_date}</div>
                                                         <p>Author: {user.map(u => (u.id === p.user_id ? u.name : ''))}</p>
-                                                        <p>Category: {categories.map(c => (c.id === p.category ? c.name : ''))}</p>
+                                                        <p>Category: {categories.map(c => (c.id === p.cate_id ? c.name : ''))}</p>
                                                         <h2 className="card-title h4">{p.name}</h2>
                                                         <p className="card-text">{p.content}</p>
                                                         <a className="btn btn-primary" href="#!">

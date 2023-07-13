@@ -7,9 +7,10 @@
     width: 50%;
     height: 30%;
 }
-.row_1{
-    margin-bottom: 10%;
+.row_1
+    
 * {
+  margin-bottom: 10%;
   margin: 0px;
   padding: 0px;
 }

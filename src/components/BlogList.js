@@ -27,7 +27,7 @@ const BlogList = () => {
             .then((data) => {
                 categories.forEach((category) => {
                     data.forEach((blog, index) => {
-                        if (category.id == blog.category) {
+                        if (category.id == blog.cate_id) {
                             data[index] = {
                                 ...blog,
                                 categoryname: category.name,
@@ -39,7 +39,7 @@ const BlogList = () => {
                 let filteredBlogs = data;
                 if (checkedState.length > 0) {
                     filteredBlogs = data.filter((blog) =>
-                        checkedState.includes(blog.category)
+                        checkedState.includes(blog.cate_id)
                     );
                 }
                 setBlogs(filteredBlogs);
@@ -47,7 +47,7 @@ const BlogList = () => {
     }, [checkedState, blogs]);
 
     useEffect(() => {
-        fetch(' http://localhost:9999/category')
+        fetch(' http://localhost:9999/category_blog')
             .then(resp => resp.json())
             .then(data => {
                 setCategory(data)
@@ -87,7 +87,7 @@ const BlogList = () => {
                                                 <div className="card-body">
                                                     <div className="small text-muted">{p.create_date}</div>
                                                     <p>Author: {user.map(u => (u.id === p.user_id ? u.name : ''))}</p>
-                                                    <p>Category: {categories.map(c => (c.id === p.category ? c.name : ''))}</p>
+                                                    <p>Category: {categories.map(c => (c.id === p.cate_id ? c.name : ''))}</p>
                                                     <h2 className="card-title h4">{p.name}</h2>
                                                     <p className="card-text">{p.content}</p>
                                                     <a className="btn btn-primary" href="#!">
