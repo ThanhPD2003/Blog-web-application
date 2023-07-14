@@ -1,4 +1,4 @@
-import { Col, Row, Table ,Container} from "react-bootstrap";
+import { Col, Row, Table, Container } from "react-bootstrap";
 import React, { useEffect, useState } from 'react';
 import '../style/Home.css';
 import Slider from "react-slick";
@@ -35,7 +35,7 @@ const Home = () => {
         fetch(' http://localhost:9999/blog')
             .then(resp => resp.json())
             .then(data => {
-                setBlogs(data.slice(0, 5))
+                setBlogs(data.slice(0, 4))
             })
     }, []);
 
@@ -71,66 +71,58 @@ const Home = () => {
     };
 
     return (
-        <Row>
-            <Row >
-                <Col xs={12} >
-                    <div className="container">
-                        <Slider {...sliderSettings}>
-                            {slideImages.map((slide, index) => (
-                                <div key={index} className="slide-item">
-                                    <img src={slide.img} alt={`Slide ${index + 1}`} />
-                                    <p className="slide-name"> {slide.name}</p>
-                                </div>
-                            ))}
-                        </Slider>
-                    </div>
-                </Col>
-                <Container className="home-component">
-                    <Row>
-                        <Col xs={12}>
-                            <h1>Front-End Web Development with React</h1>
-                        </Col>
-                    </Row>
-                </Container>
-            </Row>
-            <Row>
-                <Col xs={8}>
-                    <tbody>
-                        <div>
-                            {
-                                blogs.map(p => (
-                                    <tr key={p.id}>
-                                        <div style={{ paddingLeft: '20%' }}>
-                                            <Row>
-                                                <div className="col-lg-6">
-                                                    <a href="#!">
-                                                        <img className="card-img" src={p.img} alt="..." />
-                                                    </a>
-                                                </div>
-                                                <div className="col-lg-6"> {/* Add a column wrapper for the second div */}
-                                                    <div className="card-body">
-                                                        <div className="small text-muted">{p.create_date}</div>
-                                                        <p>Author: {user.map(u => (u.id === p.user_id ? u.name : ''))}</p>
-                                                        <p>Category: {categories.map(c => (c.id === p.cate_id ? c.name : ''))}</p>
-                                                        <h2 className="card-title h4">{p.name}</h2>
-                                                        <p className="card-text">{p.content}</p>
-                                                        <a className="btn btn-primary" href="#!">
-                                                            Read more →
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </Row>
-                                        </div>
-                                    </tr>
-                                ))
-                            }
-                        </div>
-                    </tbody>
-                </Col>
-            </Row >
-        </Row >
-    );
+        <div>
 
+            <Col>
+                <div className="container">
+                    <Slider {...sliderSettings}>
+                        {slideImages.map((slide, index) => (
+                            <div key={index} className="slide-item">
+                                <img src={slide.img} alt={`Slide ${index + 1}`} />
+                                <p className="slide-name"> {slide.name}</p>
+                            </div>
+                        ))}
+                    </Slider>
+                </div>
+            </Col>
+            <div style={{paddingLeft:'340px'}}>
+            <div style={{ marginTop: '30px', fontSize: '30px', color: 'Black', width:'200px', textAlign:'center'}}>New Blogs</div>
+            </div>
+            <div>
+                <div class="container">
+                    {
+                        blogs.map(p => (
+                            <tr key={p.id}>
+                                <div class="row">
+                                    <Row>
+                                        <div class="col" className="content">
+                                            <a href="#!">
+                                                <img className="image" src={p.img} alt="..." />
+                                            </a>
+                                        </div>
+                                        <div class="col"> {/* Add a column wrapper for the second div */}
+                                            <div className="card-body">
+                                                <div className="small text-muted">{p.create_date}</div>
+                                                <p>Author: {user.map(u => (u.id === p.user_id ? u.name : ''))}</p>
+                                                <p>Category: {categories.map(c => (c.id === p.cate_id ? c.name : ''))}</p>
+                                                <h2 className="card-title h4">{p.name}</h2>
+                                                <p className="card-text">{p.content.split(' ').length > 50
+                                                    ? `${p.content.split(' ').slice(0, 25).join(' ')}...`
+                                                    : p.content}</p>
+                                                <a className="btn btn-primary" href="#!">
+                                                    Read more →
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </Row>
+                                </div>
+                            </tr>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+    );
 }
 export default Home;
 

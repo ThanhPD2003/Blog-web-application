@@ -89,7 +89,9 @@ const BlogList = () => {
                                                     <p>Author: {user.map(u => (u.id === p.user_id ? u.name : ''))}</p>
                                                     <p>Category: {categories.map(c => (c.id === p.cate_id ? c.name : ''))}</p>
                                                     <h2 className="card-title h4">{p.name}</h2>
-                                                    <p className="card-text">{p.content}</p>
+                                                    <p className="card-text">{p.content.split(' ').length > 50
+                                                    ? `${p.content.split(' ').slice(0, 25).join(' ')}...`
+                                                    : p.content}</p>
                                                     <a className="btn btn-primary" href="#!">
                                                         Read more →
                                                     </a>
