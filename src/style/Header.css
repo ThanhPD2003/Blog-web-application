@@ -44,3 +44,10 @@
 .AnhLon{
     width: 80px;
 }
+
+.header {
+    background-color: rgb(255, 255, 255);
+    line-height: 40px;
+    position: relative;
+    z-index: 2; /* Higher z-index value */
+  }

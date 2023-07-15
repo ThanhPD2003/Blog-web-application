@@ -176,7 +176,6 @@
       "user_id": 1
     },
     {
-
       "id": 10,
       "name": "Học IT lương ngàn đô?",
       "img": "https://vtc.edu.vn/wp-content/uploads/2021/07/coder-vtc-academy-3.jpg",
@@ -186,8 +185,18 @@
       "status": true,
       "cate_id": 1,
       "user_id": 1
+    },
+    {
+      "id": 11,
+      "name": "hehe",
+      "img": "https://res.cloudinary.com/dayubishj/image/upload/blogs/zx5yks144sxbppacinmi",
+      "briefInfo": "Son tung dep zai",
+      "content": "<p>HEHE</p>",
+      "createDate": "14/07/2023",
+      "status": false,
+      "cateId": "3",
+      "userId": "5"
     }
-
   ],
   "category_blog": [
     {
