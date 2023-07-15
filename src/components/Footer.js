@@ -3,7 +3,7 @@ import '../style/Footer.css';
 
 const Footer = () => {
     return (
-        <Row className="footer fixed-bottom">
+        <Row className="footer">
             <Container className="footer-component">
                 <Row>
                     <Col>
