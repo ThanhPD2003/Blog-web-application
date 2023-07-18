@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import UserContext from './UserContext';
 import '../style/Header.css';
+import logo from '../images/logo.png';
 
 const Header = () => {
   const { userEmail, logoutUser } = useContext(UserContext);
