@@ -1,6 +1,7 @@
 import { Col, Row, Pagination } from "react-bootstrap";
 import React, { useEffect, useState } from 'react';
 import '../style/Home.css';
+import { Link } from "react-router-dom";
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);

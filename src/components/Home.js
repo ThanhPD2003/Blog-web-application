@@ -4,6 +4,7 @@ import '../style/Home.css';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
 // import BlogList1 from '../images/BlogList1.jpg';
 // import BlogList2 from '../images/BlogList2.jpg';
 // import BlogList3 from '../images/BlogList3.jpg';
@@ -68,6 +69,8 @@ const Home = () => {
         slidesToScroll: 1,
         autoplay: true, // Tự động chuyển tiếp ảnh
         autoplaySpeed: 3000, // Thời gian chờ giữa các lượt chuyển tiếp (3000ms = 3 giây)
+        height: "100vh",
+        width: "100vw",
     };
 
     return (
@@ -78,16 +81,18 @@ const Home = () => {
                     <Slider {...sliderSettings}>
                         {slideImages.map((slide, index) => (
                             <div key={index} className="slide-item">
-                                <img src={slide.img} alt={`Slide ${index + 1}`} />
+                            <Link to={'/detail/'+ (index+1)}>
+                                <img src={slide.img}  alt={`Slide ${index + 1}`} />
+                            </Link>
                                 <p className="slide-name"> {slide.name}</p>
                             </div>
                         ))}
                     </Slider>
                 </div>
             </Col>
-            <div style={{paddingLeft:'340px'}}>
-            <div style={{ marginTop: '30px', fontSize: '30px', color: 'Black', width:'200px', textAlign:'center'}}>New Blogs</div>
-            </div>
+            <Col xs={12} >
+            <h2 style={{ marginTop: '30px', marginLeft: '90px'}}>New Blogs: </h2>
+            </Col>
             <div>
                 <div class="container">
                     {
@@ -96,9 +101,9 @@ const Home = () => {
                                 <div class="row">
                                     <Row>
                                         <div class="col" className="content">
-                                            <a href="#!">
+                                            <Link to={'/detail/'+ p.id}>
                                                 <img className="image" src={p.img} alt="..." />
-                                            </a>
+                                            </Link>
                                         </div>
                                         <div class="col"> {/* Add a column wrapper for the second div */}
                                             <div className="card-body">
@@ -109,9 +114,9 @@ const Home = () => {
                                                 <p className="card-text">{p.content.split(' ').length > 50
                                                     ? `${p.content.split(' ').slice(0, 25).join(' ')}...`
                                                     : p.content}</p>
-                                                <a className="btn btn-primary" href="#!">
-                                                    Read more →
-                                                </a>
+
+                                                <Link to={'/detail/'+ p.id} className="btn btn-primary">Read more →</Link>
+                                                
                                             </div>
                                         </div>
                                     </Row>
