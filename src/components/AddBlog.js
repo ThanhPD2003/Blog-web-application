@@ -22,9 +22,9 @@ const AddBlog = () => {
   const [blogs, setBlogs] = useState([]);
   const [name, setName] = useState('');
   const [img, setImg] = useState('');
-  const [briefInfo, setBriefInfo] = useState('');
+  const [brief_info, setBriefInfo] = useState('');
   const [content, setContent] = useState('');
-  const [createDate, setCreateDate] = useState('');
+  const [create_date, setCreateDate] = useState('');
   const [status, setStatus] = useState(false);
   const [cateId, setCateId] = useState('');
   const [categories, setCategories] = useState([]);
@@ -65,12 +65,12 @@ const AddBlog = () => {
       id: blogs.length + 1,
       name,
       img: `https://res.cloudinary.com/${cloudinaryConfig.cloudName}/image/upload/${img}`,
-      briefInfo,
+      brief_info,
       content,
-      createDate: formattedDate,
+      create_date: formattedDate,
       status,
-      cateId,
-      userId
+      cate_id: parseInt(cateId), // Convert cateId to an integer
+      user_id: parseInt(userId) // Convert userId to an integer
     };
   
     saveBlogToDatabase(newBlog)
@@ -173,7 +173,7 @@ const AddBlog = () => {
 
           <label>Thông tin ngắn gọn:</label>
           <div className="input-container">
-            <input type="text" value={briefInfo} onChange={(e) => setBriefInfo(e.target.value)} required />
+            <input type="text" value={brief_info} onChange={(e) => setBriefInfo(e.target.value)} required />
           </div>
 
           <label>Nội dung:</label>

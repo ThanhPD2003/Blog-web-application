@@ -1,0 +1,44 @@
+.edit-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 80vh;
+    width: 100%;
+    padding: 0 1rem;
+    overflow-y: auto;
+    margin-top: 2px;
+  }
+  
+  .edit-container h2 {
+    margin-top: 0;
+  }
+  
+  .edit-container form {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .edit-container .input-container {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  .edit-container .input-container input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  
+  .edit-container button {
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
