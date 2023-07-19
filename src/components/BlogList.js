@@ -117,7 +117,7 @@ const BlogList = () => {
             </tbody>
           </table>
         ) : (
-          <p>No blogs found.</p>
+          <h1 style={{paddingLeft:'10%'}}>No blogs found.</h1>
         )}
         <Col xs={12} className="d-flex justify-content-center mt-4">
           <Pagination>
