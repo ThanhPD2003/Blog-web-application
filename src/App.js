@@ -10,8 +10,12 @@ import BlogList from './components/BlogList';
 import Register from './components/Register';
 import AddBlog from './components/AddBlog';
 import Login from './components/Login';
+<<<<<<< HEAD
 import AdminBlogList from './components/AdminList';
 import EditBlog from './components/EditBlog';
+=======
+import BlogDetail from './components/BlogDetail';
+>>>>>>> main
 import { UserProvider } from './components/UserContext'; // Import UserProvider
 
 function App() {
@@ -26,8 +30,12 @@ function App() {
             <Route path="/addblog" element={<AddBlog />} />
             <Route path="/register" element={<Register />} />
             <Route path='/login' element={<Login />} />
+<<<<<<< HEAD
             <Route path='/adminBlogList' element={<AdminBlogList />} />
             <Route path='/edit/:bid' element={<EditBlog />} />
+=======
+            <Route path='/detail/:bid' element={<BlogDetail/>} />
+>>>>>>> main
           </Routes>
           <Footer />
         </UserProvider>

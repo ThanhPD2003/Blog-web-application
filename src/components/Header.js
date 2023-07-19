@@ -18,6 +18,7 @@ const Header = () => {
             </NavLink>
           </Col>
           <Col xs={6} className="header-right">
+            {/* <NavLink to={'/bloglist'}> <button> </button></NavLink> */}
             <NavLink to={'/'} className={({ isActive }) => isActive ? 'link-active' : 'link'}>Home</NavLink>
             <NavLink to={'/bloglist'} className={({ isActive }) => isActive ? 'link-active' : 'link'}>Blog List</NavLink>
             {/* Conditionally render the user's email if logged in, or the Login and Register links if not logged in */}

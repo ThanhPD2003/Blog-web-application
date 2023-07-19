@@ -1,6 +1,7 @@
 import { Col, Row, Table, Pagination } from "react-bootstrap";
 import React, { useEffect, useState } from 'react';
 import '../style/Home.css';
+import { Link } from "react-router-dom";
 
 const BlogList = () => {
 
@@ -79,13 +80,13 @@ const BlogList = () => {
                                     <div style={{ paddingLeft: '30%' }}>
                                         <Row>
                                             <div className="col-lg-6">
-                                                <a href="#!">
+                                                <Link to={'/detail/'+ p.id}>
                                                     <img className="card-img" src={p.img} alt="..." />
-                                                </a>
+                                                </Link> 
                                             </div>
                                             <div className="col-lg-6"> {/* Add a column wrapper for the second div */}
                                                 <div className="card-body">
-                                                    <div className="small text-muted">
+                                                <div className="small text-muted">
                                                         {p.create_date}
                                                     </div>
                                                     <p>Author: {user.map(u =>
@@ -99,6 +100,7 @@ const BlogList = () => {
                                                     </h2>
                                                     <p className="card-text">{
                                                         p.content.split(' ').length > 50 ? `${p.content.split(' ').slice(0, 25).join(' ')}...` : p.content}</p>
+                                                    <Link to={'/detail/'+ p.id} className="btn btn-primary">Read more →</Link>
                                                     <a className="btn btn-primary" href="#!">
                                                         Read more →
                                                     </a>
