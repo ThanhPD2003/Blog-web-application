@@ -94,7 +94,7 @@
       "content": "Chào mọi người, hiện tại các bạn đã có điểm thi và đang phân vân chọn ngành học. Làm mình bồi hồi nhớ lại hồi trước mình cũng phân vân, mông lung trong chọn con đường tương lai. Mặc dù đam mê game và mộng tưởng về tương lai sẽ làm một con game khuynh đảo thế giới :v. Và dĩ nhiên từ khóa hot nhất hiện tại là IT, vua của mọi nghề :v. Nhân dịp vừa xong đồ án tốt nghiệp kỹ sư IT của HUST, mình xin chia sẻ một chút về IT cho những bạn đang chọn, những bạn sau này cũng sẽ phân vân chọn ngành này. ",
       "create_date": "12/12/2022",
       "status": true,
-      "cate_id": 1,
+      "cate_id": 3,
       "user_id": 1
     },
     {
@@ -104,8 +104,13 @@
       "brief_info": "Điện toán đám mây is hard",
       "content": "Chào mọi người, hiện tại các bạn đã có điểm thi và đang phân vân chọn ngành học. Làm mình bồi hồi nhớ lại hồi trước mình cũng phân vân, mông lung trong chọn con đường tương lai. Mặc dù đam mê game và mộng tưởng về tương lai sẽ làm một con game khuynh đảo thế giới :v. Và dĩ nhiên từ khóa hot nhất hiện tại là IT, vua của mọi nghề :v. Nhân dịp vừa xong đồ án tốt nghiệp kỹ sư IT của HUST, mình xin chia sẻ một chút về IT cho những bạn đang chọn, những bạn sau này cũng sẽ phân vân chọn ngành này. ",
       "create_date": "12/03/2023",
+<<<<<<< HEAD
       "status": true,
       "cate_id": 5,
+=======
+      "status": false,
+      "cate_id": 4,
+>>>>>>> main
       "user_id": 2
     },
     {
@@ -120,6 +125,7 @@
       "user_id": 2
     },
     {
+<<<<<<< HEAD
       "id": 5,
       "name": "Học IT lương ngàn đô thật à?",
       "img": "https://res.cloudinary.com/dayubishj/image/upload/blogs/wbwcrjegw0z9dvm7kmt2",
@@ -129,6 +135,17 @@
       "status": false,
       "cate_id": 5,
       "user_id": 2
+=======
+      "id": 4,
+      "name": "Học IT lương ngàn đô?",
+      "img": "https://vtc.edu.vn/wp-content/uploads/2021/07/coder-vtc-academy-3.jpg",
+      "brief_info": "Học IT lương ngàn đô...",
+      "content": "Chào mọi người, hiện tại các bạn đã có điểm thi và đang phân vân chọn ngành học. Làm mình bồi hồi nhớ lại hồi trước mình cũng phân vân, mông lung trong chọn con đường tương lai. Mặc dù đam mê game và mộng tưởng về tương lai sẽ làm một con game khuynh đảo thế giới :v. Và dĩ nhiên từ khóa hot nhất hiện tại là IT, vua của mọi nghề :v. Nhân dịp vừa xong đồ án tốt nghiệp kỹ sư IT của HUST, mình xin chia sẻ một chút về IT cho những bạn đang chọn, những bạn sau này cũng sẽ phân vân chọn ngành này. ",
+      "create_date": "12/12/2022",
+      "status": true,
+      "cate_id": 3,
+      "user_id": 1
+>>>>>>> main
     },
     {
       "id": "dcfc2cf0-5164-4910-9d13-9fe945ae4460",
@@ -139,7 +156,11 @@
       "create_date": "20/07/2023",
       "status": true,
       "cate_id": 2,
+<<<<<<< HEAD
       "user_id": 3
+=======
+      "user_id": 1
+>>>>>>> main
     },
     {
       "id": "0a7314ff-e705-4cc3-977e-f0bc3e53dc1b",
@@ -149,8 +170,58 @@
       "content": "<p>Dep zai</p>",
       "create_date": "20/07/2023",
       "status": true,
+<<<<<<< HEAD
       "cate_id": 2,
       "user_id": 3
+=======
+      "cate_id": 1,
+      "user_id": 1
+    },
+    {
+      "id": 7,
+      "name": "Học IT lương ngàn đô?",
+      "img": "https://vtc.edu.vn/wp-content/uploads/2021/07/coder-vtc-academy-3.jpg",
+      "brief_info": "Học IT lương ngàn đô...",
+      "content": "Chào mọi người, hiện tại các bạn đã có điểm thi và đang phân vân chọn ngành học. Làm mình bồi hồi nhớ lại hồi trước mình cũng phân vân, mông lung trong chọn con đường tương lai. Mặc dù đam mê game và mộng tưởng về tương lai sẽ làm một con game khuynh đảo thế giới :v. Và dĩ nhiên từ khóa hot nhất hiện tại là IT, vua của mọi nghề :v. Nhân dịp vừa xong đồ án tốt nghiệp kỹ sư IT của HUST, mình xin chia sẻ một chút về IT cho những bạn đang chọn, những bạn sau này cũng sẽ phân vân chọn ngành này. ",
+      "create_date": "12/12/2022",
+      "status": true,
+      "cate_id": 2,
+      "user_id": 1
+    },
+    {
+      "id": 8,
+      "name": "Học IT lương ngàn đô?",
+      "img": "https://vtc.edu.vn/wp-content/uploads/2021/07/coder-vtc-academy-3.jpg",
+      "brief_info": "Học IT lương ngàn đô...",
+      "content": "Chào mọi người, hiện tại các bạn đã có điểm thi và đang phân vân chọn ngành học. Làm mình bồi hồi nhớ lại hồi trước mình cũng phân vân, mông lung trong chọn con đường tương lai. Mặc dù đam mê game và mộng tưởng về tương lai sẽ làm một con game khuynh đảo thế giới :v. Và dĩ nhiên từ khóa hot nhất hiện tại là IT, vua của mọi nghề :v. Nhân dịp vừa xong đồ án tốt nghiệp kỹ sư IT của HUST, mình xin chia sẻ một chút về IT cho những bạn đang chọn, những bạn sau này cũng sẽ phân vân chọn ngành này. ",
+      "create_date": "12/12/2022",
+      "status": true,
+      "cate_id": 3,
+      "user_id": 1
+    },
+    {
+      "id": 9,
+      "name": "Học IT lương ngàn đô?",
+      "img": "https://vtc.edu.vn/wp-content/uploads/2021/07/coder-vtc-academy-3.jpg",
+      "brief_info": "Học IT lương ngàn đô...",
+      "content": "Chào mọi người, hiện tại các bạn đã có điểm thi và đang phân vân chọn ngành học. Làm mình bồi hồi nhớ lại hồi trước mình cũng phân vân, mông lung trong chọn con đường tương lai. Mặc dù đam mê game và mộng tưởng về tương lai sẽ làm một con game khuynh đảo thế giới :v. Và dĩ nhiên từ khóa hot nhất hiện tại là IT, vua của mọi nghề :v. Nhân dịp vừa xong đồ án tốt nghiệp kỹ sư IT của HUST, mình xin chia sẻ một chút về IT cho những bạn đang chọn, những bạn sau này cũng sẽ phân vân chọn ngành này. ",
+      "create_date": "12/12/2022",
+      "status": true,
+      "cate_id": 4,
+      "user_id": 1
+    },
+    {
+
+      "id": 10,
+      "name": "Học IT lương ngàn đô?",
+      "img": "https://vtc.edu.vn/wp-content/uploads/2021/07/coder-vtc-academy-3.jpg",
+      "brief_info": "Học IT lương ngàn đô...",
+      "content": "Chào mọi người, hiện tại các bạn đã có điểm thi và đang phân vân chọn ngành học. Làm mình bồi hồi nhớ lại hồi trước mình cũng phân vân, mông lung trong chọn con đường tương lai. Mặc dù đam mê game và mộng tưởng về tương lai sẽ làm một con game khuynh đảo thế giới :v. Và dĩ nhiên từ khóa hot nhất hiện tại là IT, vua của mọi nghề :v. Nhân dịp vừa xong đồ án tốt nghiệp kỹ sư IT của HUST, mình xin chia sẻ một chút về IT cho những bạn đang chọn, những bạn sau này cũng sẽ phân vân chọn ngành này. ",
+      "create_date": "12/12/2022",
+      "status": true,
+      "cate_id": 5,
+      "user_id": 1
+>>>>>>> main
     }
   ],
   "category_blog": [
