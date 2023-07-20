@@ -1,4 +1,4 @@
-import { Col, Row, Table, Container } from "react-bootstrap";
+import { Col, Row} from "react-bootstrap";
 import React, { useEffect, useState } from 'react';
 import '../style/Home.css';
 import Slider from "react-slick";
@@ -75,7 +75,6 @@ const Home = () => {
 
     return (
         <div>
-
             <Col>
                 <div className="container">
                     <Slider {...sliderSettings}>
@@ -91,7 +90,7 @@ const Home = () => {
                 </div>
             </Col>
             <Col xs={12} >
-            <h2 style={{ marginTop: '30px', marginLeft: '90px'}}>New Blogs: </h2>
+            <h2 style={{ marginTop: '30px', marginLeft: '15%'}}>New Blogs: </h2>
             </Col>
             <div>
                 <div class="container">

@@ -134,7 +134,6 @@ const AddBlog = () => {
                         ))}
                     </select>
                 </div>
-
                 <button className="addblog-button" type="submit">Tạo blog</button>
             </form>
         </div>

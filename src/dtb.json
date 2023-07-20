@@ -2,13 +2,10 @@
   "user": [
     {
       "id": 1,
-      "name": "Quang",
-      "email": "quang@gmail.com",
-      "password": "123456",
+      "name": "QuangT",
+      "email": "quang@gmail.com.vn",
       "address": "Tuyên Quang",
-      "phone": "0999888",
-      "status": true,
-      "role_id": 2
+      "phone": "099988875"
     },
     {
       "id": 2,
@@ -176,7 +173,6 @@
       "user_id": 1
     },
     {
-
       "id": 10,
       "name": "Học IT lương ngàn đô?",
       "img": "https://vtc.edu.vn/wp-content/uploads/2021/07/coder-vtc-academy-3.jpg",
@@ -187,7 +183,6 @@
       "cate_id": 5,
       "user_id": 1
     }
-
   ],
   "category_blog": [
     {

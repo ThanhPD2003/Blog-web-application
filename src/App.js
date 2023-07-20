@@ -1,5 +1,4 @@
 import './App.css';
-
 import { BrowserRouter } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
@@ -11,7 +10,9 @@ import Register from './components/Register';
 import AddBlog from './components/AddBlog';
 import Login from './components/Login';
 import BlogDetail from './components/BlogDetail';
-import { UserProvider } from './components/UserContext'; // Import UserProvider
+import { UserProvider } from './components/UserContext'; // Import UserProvide
+import UserProfile from './components/UserProfile';
+import UpdateProfile from './components/UpdateProfile';
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path='/login' element={<Login />} />
             <Route path='/detail/:bid' element={<BlogDetail/>} />
+            <Route path='/userprofile/:uid' element={<UserProfile/>} />
+            <Route path='/update/:uid' element={<UpdateProfile/>}/>
           </Routes>
           <Footer />
         </UserProvider>
