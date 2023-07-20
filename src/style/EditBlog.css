@@ -1,46 +1,38 @@
-.add-container {
+.edit-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align content from top */
+    justify-content: flex-start;
     align-items: center;
     height: 80vh;
     width: 100%;
     padding: 0 1rem;
-    overflow-y: auto; /* Enable vertical scrolling */
-    margin-top: 2px; /* Add top margin to avoid overlap with header */
+    overflow-y: auto;
+    margin-top: 2px;
   }
   
-h2 {
+  .edit-container h2 {
     margin-top: 0;
-}
-
-form {
+  }
+  
+  .edit-container form {
     width: 100%;
     max-width: 600px;
-}
-
-.input-container {
+  }
+  
+  .edit-container .input-container {
     position: relative;
     margin-bottom: 1rem;
-}
-
-.input-container input {
+  }
+  
+  .edit-container .input-container input {
     width: 100%;
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-}
-
-.ck {
-    width:100%;
-    height: 130px;
   }
-
-.input-container select {
-    width:100%;
-}
-
-.addblog-button {
+  
+  
+  .edit-container button {
     width: 100%;
     background-color: black;
     color: white;
@@ -48,4 +40,5 @@ form {
     padding: 0.5rem 1rem;
     cursor: pointer;
     margin-top: 1rem;
-}
+  }
+  
