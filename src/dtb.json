@@ -21,11 +21,8 @@
       "id": 3,
       "name": "Thanh",
       "email": "Thanh@gmail.com",
-      "password": "123456",
       "address": "Yên Bái",
-      "phone": "0999888",
-      "status": true,
-      "role_id": 1
+      "phone": "0999888"
     },
     {
       "id": 4,
@@ -182,6 +179,17 @@
       "status": true,
       "cate_id": 5,
       "user_id": 1
+    },
+    {
+      "id": "d45d7900-c3b1-4be8-b32c-92810a2edc43",
+      "name": "FPT Uni",
+      "img": "https://res.cloudinary.com/dayubishj/image/upload/blogs/ndnbcr1x4jrtrmww4czj",
+      "brief_info": "FPT",
+      "content": "<p>so 1</p>",
+      "create_date": "20/07/2023",
+      "status": true,
+      "cate_id": 1,
+      "user_id": 3
     }
   ],
   "category_blog": [

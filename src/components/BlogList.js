@@ -1,11 +1,11 @@
-import { Col, Row, Pagination } from "react-bootstrap";
+import { Col, Row, Table, Pagination } from "react-bootstrap";
 import React, { useEffect, useState } from 'react';
 import '../style/Home.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
-  const [user, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
   const [categories, setCategory] = useState([]);
   const [checkList, setCheckList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -13,6 +13,7 @@ const BlogList = () => {
   const [filteredResults, setFilteredResults] = useState([]);
   const [showSearchResults, setShowSearchResults] = useState(false);
   const postsPerPage = 5;
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('http://localhost:9999/user')
@@ -20,6 +21,9 @@ const BlogList = () => {
       .then(data => {
         setUsers(data)
       })
+      .catch(error => {
+        console.error("Error fetching users:", error);
+      });
   }, []);
 
   useEffect(() => {
@@ -46,8 +50,11 @@ const BlogList = () => {
     fetch('http://localhost:9999/category_blog')
       .then(resp => resp.json())
       .then(data => {
-        setCategory(data)
+        setCategory(data);
       })
+      .catch(error => {
+        console.error("Error fetching categories:", error);
+      });
   }, []);
 
   const addCheckList = (e, uid) => {
@@ -79,10 +86,10 @@ const BlogList = () => {
 
   return (
     <div>
-      <Row style={{marginLeft:'0',marginRight:'0'}}>
+      <Row style={{ marginLeft: '0', marginRight: '0' }}>
         <Col xs={8}>
           {((showSearchResults ? filteredResults : blogs).length > 0) ? (
-            <table>
+            <Table>
               <tbody>
                 {(showSearchResults ? filteredResults : blogs).slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage).map(p => (
                   <tr key={p.id}>
@@ -92,18 +99,19 @@ const BlogList = () => {
                           <Link to={'/detail/' + p.id}>
                             <img className="card-img" src={p.img} alt="..." />
                           </Link>
-
                         </div>
                         <div className="col-lg-6">
                           <div className="card-body">
                             <div className="small text-muted">{p.create_date}</div>
-                            <p>Author: {user.map(u => (u.id === p.user_id ? u.name : ''))}</p>
+                            <p>Author: {users.map(u => (u.id === p.user_id ? u.name : ''))}</p>
                             <p>Category: {categories.map(c => (c.id === p.cate_id ? c.name : ''))}</p>
                             <h2 className="card-title h4">{p.name}</h2>
                             <p className="card-text">{p.content.split(' ').length > 50
                               ? `${p.content.split(' ').slice(0, 25).join(' ')}...`
                               : p.content}</p>
-                            <Link to={'/detail/' + p.id} className="btn btn-primary">Read more →</Link>
+                            <a className="btn btn-primary" href="#!">
+                              Read more →
+                            </a>
                           </div>
                         </div>
                       </Row>
@@ -111,7 +119,7 @@ const BlogList = () => {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </Table>
           ) : (
             <h1 style={{ paddingLeft: '10%' }}>No blogs found.</h1>
           )}
@@ -135,6 +143,7 @@ const BlogList = () => {
               <form onSubmit={handleSearchChange}>
                 Search by name:
                 <input type="text" value={searchName} onChange={handleSearchChange} />
+                
               </form>
             </div>
             Category

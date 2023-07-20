@@ -31,12 +31,13 @@ const Login = () => {
         const user = users.find((u) => u.email === email && u.password === password);
 
         if (user) {
-          // Store the user ID and email in sessionStorage
+          // Store the user ID, email, cateId in sessionStorage
           sessionStorage.setItem("userId", user.id);
           sessionStorage.setItem("userEmail", user.email);
+          sessionStorage.setItem("roleId",user.role_id)
 
           // Call loginUser function from UserContext
-          loginUser(user.email, user.id);
+          loginUser(user.email, user.id, user.role_id);
 
           // Redirect the user to the dashboard
           navigate("/");
