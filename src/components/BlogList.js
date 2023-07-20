@@ -70,13 +70,9 @@ const BlogList = () => {
 
   const handleSearchChange = (e) => {
     setSearchName(e.target.value);
-  };
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    if (searchName.trim() !== '') {
+    if (e.target.value.trim() !== '') {
       const filteredBlogs = blogs.filter(blog =>
-        blog.name.toLowerCase().includes(searchName.toLowerCase())
+        blog.name.toLowerCase().includes(e.target.value.toLowerCase())
       );
       setFilteredResults(filteredBlogs);
       setCurrentPage(1);
@@ -89,76 +85,78 @@ const BlogList = () => {
   };
 
   return (
-    <Row>
-      <Col xs={8}>
-        {((showSearchResults ? filteredResults : blogs).length > 0) ? (
-          <Table>
-            <tbody>
-              {(showSearchResults ? filteredResults : blogs).slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage).map(p => (
-                <tr key={p.id}>
-                  <td style={{ paddingLeft: '30%' }}>
-                    <Row>
-                      <div className="col-lg-6">
-                        <Link to={'/detail/' + p.id}>
-                          <img className="card-img" src={p.img} alt="..." />
-                        </Link>
-                      </div>
-                      <div className="col-lg-6">
-                        <div className="card-body">
-                          <div className="small text-muted">{p.create_date}</div>
-                          <p>Author: {users.map(u => (u.id === p.user_id ? u.name : ''))}</p>
-                          <p>Category: {categories.map(c => (c.id === p.cate_id ? c.name : ''))}</p>
-                          <h2 className="card-title h4">{p.name}</h2>
-                          <p className="card-text">{p.content.split(' ').length > 50
-                            ? `${p.content.split(' ').slice(0, 25).join(' ')}...`
-                            : p.content}</p>
-                          <a className="btn btn-primary" href="#!">
-                            Read more →
-                          </a>
+    <div>
+      <Row style={{ marginLeft: '0', marginRight: '0' }}>
+        <Col xs={8}>
+          {((showSearchResults ? filteredResults : blogs).length > 0) ? (
+            <Table>
+              <tbody>
+                {(showSearchResults ? filteredResults : blogs).slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage).map(p => (
+                  <tr key={p.id}>
+                    <td style={{ paddingLeft: '30%' }}>
+                      <Row>
+                        <div className="col-lg-6">
+                          <Link to={'/detail/' + p.id}>
+                            <img className="card-img" src={p.img} alt="..." />
+                          </Link>
                         </div>
-                      </div>
-                    </Row>
-                  </td>
-                </tr>
+                        <div className="col-lg-6">
+                          <div className="card-body">
+                            <div className="small text-muted">{p.create_date}</div>
+                            <p>Author: {users.map(u => (u.id === p.user_id ? u.name : ''))}</p>
+                            <p>Category: {categories.map(c => (c.id === p.cate_id ? c.name : ''))}</p>
+                            <h2 className="card-title h4">{p.name}</h2>
+                            <p className="card-text">{p.content.split(' ').length > 50
+                              ? `${p.content.split(' ').slice(0, 25).join(' ')}...`
+                              : p.content}</p>
+                            <a className="btn btn-primary" href="#!">
+                              Read more →
+                            </a>
+                          </div>
+                        </div>
+                      </Row>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          ) : (
+            <h1 style={{ paddingLeft: '10%' }}>No blogs found.</h1>
+          )}
+          <Col xs={12} className="d-flex justify-content-center mt-4">
+            <Pagination>
+              {Array.from({ length: Math.ceil((showSearchResults ? filteredResults : blogs).length / postsPerPage) }).map((_, index) => (
+                <Pagination.Item
+                  key={index + 1}
+                  active={currentPage === index + 1}
+                  onClick={() => handlePageChange(index + 1)}
+                >
+                  {index + 1}
+                </Pagination.Item>
               ))}
-            </tbody>
-          </Table>
-        ) : (
-          <h1 style={{ paddingLeft: '10%' }}>No blogs found.</h1>
-        )}
-        <Col xs={12} className="d-flex justify-content-center mt-4">
-          <Pagination>
-            {Array.from({ length: Math.ceil((showSearchResults ? filteredResults : blogs).length / postsPerPage) }).map((_, index) => (
-              <Pagination.Item
-                key={index + 1}
-                active={currentPage === index + 1}
-                onClick={() => handlePageChange(index + 1)}
-              >
-                {index + 1}
-              </Pagination.Item>
-            ))}
-          </Pagination>
+            </Pagination>
+          </Col>
         </Col>
-      </Col>
-      <div style={{ paddingLeft: '10%' }}>
-        <div>
+        <div style={{ paddingLeft: '10%' }}>
           <div>
-            <form onSubmit={handleSearchSubmit}>
-              Search by name:
-              <input type="text" value={searchName} onChange={handleSearchChange} />
-              <button type="submit">Search</button>
-            </form>
-          </div>
-          Category
-          {categories.map((category) => (
-            <div key={category.id}>
-              <input type='checkbox' onChange={e => addCheckList(e, category.id)} />
-              <span>{category.name}</span>
+            <div>
+              <form onSubmit={handleSearchChange}>
+                Search by name:
+                <input type="text" value={searchName} onChange={handleSearchChange} />
+                
+              </form>
             </div>
-          ))}
+            Category
+            {categories.map((category) => (
+              <div key={category.id}>
+                <input type='checkbox' onChange={e => addCheckList(e, category.id)} />
+                <span>{category.name}</span>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </Row>
+      </Row>
+    </div>
   );
 }
 

@@ -3,7 +3,7 @@ import '../style/Footer.css';
 
 const Footer = () => {
     return (
-        <Row className="footer">
+        <div className="footer">
             <Container className="footer-component">
                 <Row>
                     <Col>
@@ -11,7 +11,7 @@ const Footer = () => {
                     </Col>
                 </Row>
             </Container>
-        </Row>
+        </div>
     );
 }
 

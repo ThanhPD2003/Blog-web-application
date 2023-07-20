@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+
+import { Col, Container, FormLabel, Row , Button } from "react-bootstrap";
 import { useParams, useNavigate } from 'react-router-dom';
-import { Col, Container, Row, Button } from "react-bootstrap";
+// import "../styles/Detail.css"
 
 const Detail = () => {
   const { bid } = useParams();
@@ -132,5 +134,6 @@ const Detail = () => {
     </Container>
   );
 }
+
 
 export default Detail;

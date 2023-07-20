@@ -1,5 +1,4 @@
 import './App.css';
-
 import { BrowserRouter } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
@@ -14,8 +13,9 @@ import AdminBlogList from './components/AdminList';
 import EditBlog from './components/EditBlog';
 import UnapprovedBlogList from './components/Approve';
 import BlogDetail from './components/BlogDetail';
-
-import { UserProvider } from './components/UserContext'; // Import UserProvider
+import { UserProvider } from './components/UserContext'; // Import UserProvide
+import UserProfile from './components/UserProfile';
+import UpdateProfile from './components/UpdateProfile';
 
 function App() {
   return (
@@ -32,6 +32,8 @@ function App() {
             <Route path='/adminBlogList' element={<AdminBlogList />} />
             <Route path='/edit/:bid' element={<EditBlog />} />
             <Route path='/detail/:bid' element={<BlogDetail/>} />
+            <Route path='/userprofile/:uid' element={<UserProfile/>} />
+            <Route path='/update/:uid' element={<UpdateProfile/>}/>
             <Route path='/approve' element={<UnapprovedBlogList/>} />
           </Routes>
           <Footer />
