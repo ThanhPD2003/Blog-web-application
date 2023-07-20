@@ -94,6 +94,10 @@ const Register = () => {
     return emailRegex.test(email);
   };
 
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
     setEmailError('');
@@ -122,50 +126,59 @@ const Register = () => {
         throw new Error('Error saving user');
       }
     });
-};
+  };
 
-return (
-  <div className="register-container">
-    <h2>Register</h2>
-    <form onSubmit={handleRegister}>
-      <label>Email:</label>
-      <div className="input-container">
-        <input
-          type="email"
-          value={email}
-          onChange={handleEmailChange}
-          required
-        />
-        {emailError && <p className="error">{emailError}</p>}
-      </div>
-      <label>Password:</label>
-      <div className="input-container">
-        <input
-          type="password"
-          value={password}
-          onChange={handlePasswordChange}
-          required
-        />
-        {passwordError && <p className="error">{passwordError}</p>}
-      </div>
-      <label>Confirm Password:</label>
-      <div className="input-container">
-        <input
-          type="password"
-          value={confirmPassword}
-          onChange={handleConfirmPasswordChange}
-          required
-        />
-        {confirmPasswordError && (
-          <p className="error">{confirmPasswordError}</p>
-        )}
-      </div>
-      <button type="submit" className="register-button">
-        Register
-      </button>
-    </form>
-  </div>
-);
+  return (
+    <div className="register-container">
+      <h2>Register</h2>
+      <form onSubmit={handleRegister}>
+        <label>Name:</label>
+        <div className="input-container">
+          <input
+            type="text"
+            value={name}
+            onChange={handleNameChange}
+            required
+          />
+        </div>
+        <label>Email:</label>
+        <div className="input-container">
+          <input
+            type="email"
+            value={email}
+            onChange={handleEmailChange}
+            required
+          />
+          {emailError && <p className="error">{emailError}</p>}
+        </div>
+        <label>Password:</label>
+        <div className="input-container">
+          <input
+            type="password"
+            value={password}
+            onChange={handlePasswordChange}
+            required
+          />
+          {passwordError && <p className="error">{passwordError}</p>}
+        </div>
+        <label>Confirm Password:</label>
+        <div className="input-container">
+          <input
+            type="password"
+            value={confirmPassword}
+            onChange={handleConfirmPasswordChange}
+            required
+          />
+          {confirmPasswordError && (
+            <p className="error">{confirmPasswordError}</p>
+          )}
+        </div>
+        <button type="submit" className="register-button">
+          Register
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export default Register;

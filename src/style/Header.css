@@ -2,7 +2,6 @@
     background-color: rgb(255, 255, 255);
     line-height: 40px;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
 }
 
 .header a{
@@ -45,6 +44,7 @@
 
 .AnhLon{
     width: 80px;
+    margin-left: 100px;
 }
 
 .header {

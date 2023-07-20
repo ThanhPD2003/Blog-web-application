@@ -59,6 +59,16 @@
       "phone": "",
       "status": true,
       "role_id": 2
+    },
+    {
+      "id": 7,
+      "name": "Hello",
+      "email": "Hello@gmail.com",
+      "password": "Valkyrie69",
+      "address": "",
+      "phone": "",
+      "status": true,
+      "role_id": 2
     }
   ],
   "role": [
@@ -91,10 +101,10 @@
       "id": 2,
       "name": "Điện toán đám mây là gì? Khái niệm, phân loại và ứng dụng",
       "img": "https://nhathongminhvietnam.com/wp-content/uploads/2021/02/dien-toan-dam-may-2-min.jpg",
-      "brief_info": "Điện toán đám mây .....",
+      "brief_info": "Điện toán đám mây is hard",
       "content": "Chào mọi người, hiện tại các bạn đã có điểm thi và đang phân vân chọn ngành học. Làm mình bồi hồi nhớ lại hồi trước mình cũng phân vân, mông lung trong chọn con đường tương lai. Mặc dù đam mê game và mộng tưởng về tương lai sẽ làm một con game khuynh đảo thế giới :v. Và dĩ nhiên từ khóa hot nhất hiện tại là IT, vua của mọi nghề :v. Nhân dịp vừa xong đồ án tốt nghiệp kỹ sư IT của HUST, mình xin chia sẻ một chút về IT cho những bạn đang chọn, những bạn sau này cũng sẽ phân vân chọn ngành này. ",
       "create_date": "12/03/2023",
-      "status": false,
+      "status": true,
       "cate_id": 5,
       "user_id": 2
     },
@@ -103,32 +113,44 @@
       "name": "MongoDB là gì? Định nghĩa và Hiểu rõ A-Z về MongoDB",
       "img": "https://www.davfl.com.mx/theme/assets/img/mongodb_logo.png",
       "brief_info": "MongoDB là gì? Định nghĩa...",
-      "content": "Chào mọi người, hiện tại các bạn đã có điểm thi và đang phân vân chọn ngành học. Làm mình bồi hồi nhớ lại hồi trước mình cũng phân vân, mông lung trong chọn con đường tương lai. Mặc dù đam mê game và mộng tưởng về tương lai sẽ làm một con game khuynh đảo thế giới :v. Và dĩ nhiên từ khóa hot nhất hiện tại là IT, vua của mọi nghề :v. Nhân dịp vừa xong đồ án tốt nghiệp kỹ sư IT của HUST, mình xin chia sẻ một chút về IT cho những bạn đang chọn, những bạn sau này cũng sẽ phân vân chọn ngành này. "
+      "content": "Chào mọi người, hiện tại các bạn đã có điểm thi và đang phân vân chọn ngành học. Làm mình bồi hồi nhớ lại hồi trước mình cũng phân vân, mông lung trong chọn con đường tương lai. Mặc dù đam mê game và mộng tưởng về tương lai sẽ làm một con game khuynh đảo thế giới :v. Và dĩ nhiên từ khóa hot nhất hiện tại là IT, vua của mọi nghề :v. Nhân dịp vừa xong đồ án tốt nghiệp kỹ sư IT của HUST, mình xin chia sẻ một chút về IT cho những bạn đang chọn, những bạn sau này cũng sẽ phân vân chọn ngành này. ",
+      "create_date": "12/03/2023",
+      "status": false,
+      "cate_id": 5,
+      "user_id": 2
     },
     {
       "id": 5,
       "name": "Học IT lương ngàn đô thật à?",
-      "img": "blogs/mkej07v625ycf6vycznk",
+      "img": "https://res.cloudinary.com/dayubishj/image/upload/blogs/wbwcrjegw0z9dvm7kmt2",
       "brief_info": "Học IT lương ngàn đô...",
-      "content": "Chào mọi người, hiện tại các bạn đã có điểm thi và đang phân vân chọn ngành học. Làm mình bồi hồi nhớ lại hồi trước mình cũng phân vân, mông lung trong chọn con đường tương lai. Mặc dù đam mê game và mộng tưởng về tương lai sẽ làm một con game khuynh đảo thế giới :v. Và dĩ nhiên từ khóa hot nhất hiện tại là IT, vua của mọi nghề :v. Nhân dịp vừa xong đồ án tốt nghiệp kỹ sư IT của HUST, mình xin chia sẻ một chút về IT cho những bạn đang chọn, những bạn sau này cũng sẽ phân vân chọn ngành này. "
-    },
-    {
-      "id": 7,
-      "name": "12",
-      "img": "blogs/oanzqka3mjegd6y0iptx",
-      "brief_info": "123567",
-      "content": "<p>234515</p>"
-    },
-    {
-      "id": 6,
-      "name": "Troiw",
-      "img": "https://res.cloudinary.com/dayubishj/image/upload/blogs/p4jxas2vehh39s6c0suy",
-      "brief_info": "12",
-      "content": "<p>la qua</p>",
-      "create_date": "19/07/2023",
+      "content": "Chào mọi người, hiện tại các bạn đã có điểm thi và đang phân vân chọn ngành học. Làm mình bồi hồi nhớ lại hồi trước mình cũng phân vân, mông lung trong chọn con đường tương lai. Mặc dù đam mê game và mộng tưởng về tương lai sẽ làm một con game khuynh đảo thế giới :v. Và dĩ nhiên từ khóa hot nhất hiện tại là IT, vua của mọi nghề :v. Nhân dịp vừa xong đồ án tốt nghiệp kỹ sư IT của HUST, mình xin chia sẻ một chút về IT cho những bạn đang chọn, những bạn sau này cũng sẽ phân vân chọn ngành này. ",
+      "create_date": "12/03/2023",
       "status": false,
+      "cate_id": 5,
+      "user_id": 2
+    },
+    {
+      "id": "dcfc2cf0-5164-4910-9d13-9fe945ae4460",
+      "name": "What the hell",
+      "img": "https://res.cloudinary.com/dayubishj/image/upload/blogs/wbwcrjegw0z9dvm7kmt2",
+      "brief_info": "123",
+      "content": "<p>12</p>",
+      "create_date": "20/07/2023",
+      "status": true,
       "cate_id": 2,
-      "user_id": 5
+      "user_id": 3
+    },
+    {
+      "id": "0a7314ff-e705-4cc3-977e-f0bc3e53dc1b",
+      "name": "Thanh",
+      "img": "https://res.cloudinary.com/dayubishj/image/upload/blogs/iuayciacppvrqqruxjpx",
+      "brief_info": "Thanh",
+      "content": "<p>Dep zai</p>",
+      "create_date": "20/07/2023",
+      "status": true,
+      "cate_id": 2,
+      "user_id": 3
     }
   ],
   "category_blog": [

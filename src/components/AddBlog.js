@@ -7,6 +7,7 @@ import { Image } from 'cloudinary-react';
 import { CloudinaryContext, upload } from 'cloudinary-react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { v4 as uuidv4 } from 'uuid';
 
 
 const cloudinaryConfig = {
@@ -62,7 +63,7 @@ const AddBlog = () => {
     const formattedDate = currentDate.toLocaleDateString('en-GB');
   
     const newBlog = {
-      id: blogs.length + 1,
+      id: uuidv4(), // Generate a unique id using uuidv4
       name,
       img: `https://res.cloudinary.com/${cloudinaryConfig.cloudName}/image/upload/${img}`,
       brief_info,
@@ -70,7 +71,7 @@ const AddBlog = () => {
       create_date: formattedDate,
       status,
       cate_id: parseInt(cateId), // Convert cateId to an integer
-      user_id: parseInt(userId) // Convert userId to an integer
+      user_id: parseInt(userId), // Convert userId to an integer
     };
   
     saveBlogToDatabase(newBlog)
@@ -91,19 +92,23 @@ const AddBlog = () => {
       });
   };
   
-  const saveBlogToDatabase = (newBlog) => {
-    return fetch('http://localhost:9999/blog', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newBlog),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Lỗi khi lưu blog');
-        }
+  const saveBlogToDatabase = async (newBlog) => {
+    try {
+      const response = await fetch('http://localhost:9999/blog', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newBlog),
       });
+  
+      if (!response.ok) {
+        throw new Error('Lỗi khi lưu blog');
+      }
+    } catch (error) {
+      console.error('Error saving blog:', error);
+      throw error; // Rethrow the error to handle it in the handleSubmit function
+    }
   };
   
 
@@ -137,7 +142,7 @@ const AddBlog = () => {
     <div className="add-container addblog-container">
       <h2>Tạo blog mới</h2>
       <CloudinaryContext {...cloudinaryConfig}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} s>
           <label>Tên blog:</label>
           <div className="input-container">
             <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
@@ -148,7 +153,7 @@ const AddBlog = () => {
             <Image
               cloudName={cloudinaryConfig.cloudName}
               publicId={img}
-              width="300"
+              width="600"
               height="300"
               crop="fill"
             />

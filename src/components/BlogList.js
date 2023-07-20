@@ -4,7 +4,6 @@ import '../style/Home.css';
 import { Link } from "react-router-dom";
 
 const BlogList = () => {
-
     const [blogs, setBlogs] = useState([]);
     const [user, setUsers] = useState([]);
     const [categories, setCategory] = useState([]);
@@ -12,47 +11,48 @@ const BlogList = () => {
     const [radioFilter, setRadioFilter] = useState("all");
     const [currentPage, setCurrentPage] = useState(1);
     const postsPerPage = 5;
-    const totalPages = Math.ceil(blogs.length / postsPerPage);
 
     useEffect(() => {
-        fetch(' http://localhost:9999/user')
+        fetch('http://localhost:9999/user')
             .then(resp => resp.json())
             .then(data => {
                 setUsers(data)
             })
+            .catch(error => {
+                console.error("Error fetching users:", error);
+            });
     }, []);
 
     useEffect(() => {
-        fetch(' http://localhost:9999/blog')
-            .then((resp) => resp.json())
-            .then((data) => {
-                categories.forEach((category) => {
-                    data.forEach((blog, index) => {
-                        if (category.id == blog.cate_id) {
-                            data[index] = {
-                                ...blog,
-                                categoryname: category.name,
-                            };
-                        }
-                    });
-                });
-
-                let filteredBlogs = data;
-                if (checkedState.length > 0) {
-                    filteredBlogs = data.filter((blog) =>
-                        checkedState.includes(blog.cate_id)
-                    );
-                }
-                setBlogs(filteredBlogs);
-            });
-    }, [checkedState, blogs]);
-
-    useEffect(() => {
-        fetch(' http://localhost:9999/category_blog')
+        fetch('http://localhost:9999/blog')
             .then(resp => resp.json())
             .then(data => {
-                setCategory(data)
+                // Filter the blogs where blog.status is true
+                const filteredBlogs = data.filter(blog => blog.status === true);
+
+                // Update the blogs state with the filtered blogs
+                setBlogs(filteredBlogs);
+
+                // Calculate the total number of pages for pagination
+                const totalPages = Math.ceil(filteredBlogs.length / postsPerPage);
+
+                // Reset the current page to 1 when filtering changes
+                setCurrentPage(1);
             })
+            .catch(error => {
+                console.error("Error fetching blogs:", error);
+            });
+    }, [checkedState]);
+
+    useEffect(() => {
+        fetch('http://localhost:9999/category_blog')
+            .then(resp => resp.json())
+            .then(data => {
+                setCategory(data);
+            })
+            .catch(error => {
+                console.error("Error fetching categories:", error);
+            });
     }, []);
 
     const handlePageChange = (pageNumber) => {
@@ -69,6 +69,7 @@ const BlogList = () => {
             setCheckedState([...checkedState, categoryId]);
         }
     };
+
     return (
         <Row>
             <Col xs={8}>
@@ -80,13 +81,13 @@ const BlogList = () => {
                                     <div style={{ paddingLeft: '30%' }}>
                                         <Row>
                                             <div className="col-lg-6">
-                                                <Link to={'/detail/'+ p.id}>
+                                                <Link to={'/detail/' + p.id}>
                                                     <img className="card-img" src={p.img} alt="..." />
-                                                </Link> 
+                                                </Link>
                                             </div>
-                                            <div className="col-lg-6"> {/* Add a column wrapper for the second div */}
+                                            <div className="col-lg-6">
                                                 <div className="card-body">
-                                                <div className="small text-muted">
+                                                    <div className="small text-muted">
                                                         {p.create_date}
                                                     </div>
                                                     <p>Author: {user.map(u =>
@@ -100,7 +101,7 @@ const BlogList = () => {
                                                     </h2>
                                                     <p className="card-text">{
                                                         p.content.split(' ').length > 50 ? `${p.content.split(' ').slice(0, 25).join(' ')}...` : p.content}</p>
-                                                    <Link to={'/detail/'+ p.id} className="btn btn-primary">Read more →</Link>
+                                                    <Link to={'/detail/' + p.id} className="btn btn-primary">Read more →</Link>
                                                     <a className="btn btn-primary" href="#!">
                                                         Read more →
                                                     </a>
@@ -114,7 +115,7 @@ const BlogList = () => {
                     </div>
                     <Col xs={12} className="d-flex justify-content-center mt-4">
                         <Pagination>
-                            {Array.from({ length: totalPages }).map((_, index) => (
+                            {Array.from({ length: Math.ceil(blogs.length / postsPerPage) }).map((_, index) => (
                                 <Pagination.Item
                                     key={index + 1}
                                     active={currentPage === index + 1}
@@ -138,7 +139,6 @@ const BlogList = () => {
             </div>
 
         </Row>
-
     );
 }
 

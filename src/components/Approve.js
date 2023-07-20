@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Col, Row, Table, Pagination, Button } from 'react-bootstrap';
 import '../style/Home.css';
 
-const AdminBlogList = () => {
+const UnapprovedBlogList = () => {
   const [blogs, setBlogs] = useState([]);
   const [users, setUsers] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checkedState, setCheckedState] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const navigate = useNavigate();
   const postsPerPage = 5;
 
   useEffect(() => {
@@ -66,37 +65,13 @@ const AdminBlogList = () => {
     }
   };
 
-  const handleEdit = (blogId) => {
-    // Handle navigation to the edit page programmatically using history.push
-    navigate(`/edit/${blogId}`);
-  };
-
-  const handleDelete = (blogId) => {
-    // Perform the delete API call for the blog with the given ID
-    fetch(`http://localhost:9999/blog/${blogId}`, {
-      method: 'DELETE'
-    })
-      .then((response) => {
-        if (response.ok) {
-          alert('Blog deleted successfully!');
-          // Fetch the updated blog list after deletion
-          fetchBlogs();
-        } else {
-          throw new Error('Error deleting blog');
-        }
-      })
-      .catch((error) => {
-        console.error('Error deleting blog:', error);
-        alert('An error occurred while deleting the blog.');
-      });
-  };
-
-  const totalPages = Math.ceil(blogs.length / postsPerPage);
-  const paginatedBlogs = blogs.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage);
+  const filteredBlogs = blogs.filter((blog) => blog.status === false && (checkedState.length === 0 || checkedState.includes(blog.cate_id)));
+  const totalPages = Math.ceil(filteredBlogs.length / postsPerPage);
+  const paginatedBlogs = filteredBlogs.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage);
 
   return (
     <Row>
-      <Col xs={1}></Col>
+        <Col xs={1}></Col>
       <Col xs={10}>
         <Table striped bordered>
           <thead>
@@ -107,27 +82,24 @@ const AdminBlogList = () => {
               <th>Brief Info</th>
               <th>Author</th>
               <th>Category</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {paginatedBlogs.map((blog) => (
               <tr key={blog.id}>
-                <td>
-                  {blog.id}
-                </td>
-                <td >{blog.name}</td>
+                <td>{blog.id}</td>
+                <td>{blog.name}</td>
                 <td>{blog.create_date}</td>
                 <td>{blog.brief_info}</td>
                 <td>{users.find((user) => user.id === blog.user_id)?.name || ''}</td>
                 <td>{categories.find((category) => category.id === blog.cate_id)?.name || ''}</td>
+                <td>{blog.status ? 'Approved' : 'Unapproved'}</td>
                 <td>
-                  <Button variant="primary" onClick={() => handleEdit(blog.id)}>
-                    Edit
-                  </Button>{' '}
-                  <Button variant="danger" onClick={() => handleDelete(blog.id)}>
-                    Delete
-                  </Button>
+                  <Link to={`/detail/${blog.id}`}>
+                    <Button variant="primary">Show Detail</Button>
+                  </Link>
                 </td>
               </tr>
             ))}
@@ -151,4 +123,4 @@ const AdminBlogList = () => {
   );
 };
 
-export default AdminBlogList;
+export default UnapprovedBlogList;

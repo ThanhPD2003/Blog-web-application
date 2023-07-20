@@ -6,25 +6,36 @@ import '../style/Header.css';
 import logo from '../images/logo.png';
 
 const Header = () => {
-  const { userEmail, logoutUser } = useContext(UserContext);
+  const { userEmail, logoutUser, roleId } = useContext(UserContext);
 
   return (
     <Row className="header">
-      <Container>
-        <Row>
-          <Col xs={6} className="header-left">
+          <Col xs={6}>
             <NavLink to={'/'}>
               <img src="https://gudlogo.com/wp-content/uploads/2019/04/logo-blog-13.png" className="AnhLon" alt="Logo" />
             </NavLink>
           </Col>
-          <Col xs={6} className="header-right">
-            {/* <NavLink to={'/bloglist'}> <button> </button></NavLink> */}
-            <NavLink to={'/'} className={({ isActive }) => isActive ? 'link-active' : 'link'}>Home</NavLink>
-            <NavLink to={'/bloglist'} className={({ isActive }) => isActive ? 'link-active' : 'link'}>Blog List</NavLink>
+          <Col xs={6} >
             {/* Conditionally render the user's email if logged in, or the Login and Register links if not logged in */}
+            {roleId === 1 ? (
+              <>
+                <NavLink to={'/adminBlogList'} className={({ isActive }) => isActive ? 'link-active' : 'link'}>Admin Blog List</NavLink>
+                <NavLink to={'/'} className={({ isActive }) => isActive ? 'link-active' : 'link'}>Home</NavLink>
+                <NavLink to={'/bloglist'} className={({ isActive }) => isActive ? 'link-active' : 'link'}>Blog List</NavLink>
+                <NavLink to={'/addblog'} className={({ isActive }) => isActive ? 'link-active' : 'link'}>New Blog</NavLink>
+                <NavLink to={'/approve'} className={({ isActive }) => isActive ? 'link-active' : 'link'}>Approve New Post</NavLink>
+              </>
+            ) : (
+              <>
+                <NavLink to={'/'} className={({ isActive }) => isActive ? 'link-active' : 'link'}>Home</NavLink>
+                <NavLink to={'/bloglist'} className={({ isActive }) => isActive ? 'link-active' : 'link'}>Blog List</NavLink>
+                <NavLink to={'/addblog'} className={({ isActive }) => isActive ? 'link-active' : 'link'}>New Blog</NavLink>
+              </>
+            )}
+
             {userEmail ? (
               <>
-                <span>{userEmail}</span>
+                <span>{userEmail} </span>
                 <button onClick={logoutUser}>Logout</button>
               </>
             ) : (
@@ -33,9 +44,8 @@ const Header = () => {
                 <NavLink to={'/register'} className={({ isActive }) => isActive ? 'link-active' : 'link'}>Register</NavLink>
               </>
             )}
+
           </Col>
-        </Row>
-      </Container>
     </Row>
   );
 };
